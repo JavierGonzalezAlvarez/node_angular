@@ -30,5 +30,37 @@ $ npm install mongoose --save
 proyecto\config\connectDB.js
 12. crear el modelo. creamos carpeta models
 app\models\user.js
+
+instalar mongodb Comunity Edition en linux:
+-----------------------------------------------
+https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
+$ wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
+$ wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
+$ echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
+$ sudo apt-get update
+$ sudo apt-get install -y mongodb-org
+
+start mondo-db
+--------------------
+$ sudo systemctl start mongod
+
+acceder mongo db desde el shell
+----------------------------------
+$ mongo
+
+instalar mongodb-compass en linux
+------------------------------------
+$ wget https://downloads.mongodb.com/compass/mongodb-compass_1.26.1_amd64.deb
+$ sudo dpkg -i mongodb-compass_1.26.1_amd64.deb
+
+star mongodb-compass
+-----------------------
+$ mongodb-compass
+
+Nueva conexion a mongodb-compass
+-----------------------------------
+mongodb://localhost:27017/conexion_node_crud
+
 13. crear schema de cada 'tabla'
+app/models/user
 
