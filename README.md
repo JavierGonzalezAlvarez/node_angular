@@ -13,6 +13,7 @@ cambios en package.json
     "start": "nodemon server.js",
     ...
   },
+
 5. ejecutar app
 $ npm run start
 6. crear estructura de node 
@@ -21,4 +22,13 @@ app\routes\user.js
 app\routes\direccion.js
 7. en ..routes creamos user.js
 ``
-8. exportamos rutas al archivo server.js
+8. exportamos las rutas al archivo server.js
+9. crear carpeta confog donde tendremos nuestro archivo de conexion a MongoDB
+10. instalar mongoose
+$ npm install mongoose --save
+11. crear carpeta config y la conexion a la DB mongoose
+proyecto\config\connectDB.js
+12. crear el modelo. creamos carpeta models
+app\models\user.js
+13. crear schema de cada 'tabla'
+

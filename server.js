@@ -3,6 +3,13 @@ const app = express();
 const port = 3001;
 
 /**
+ * conexion a BD
+ */
+
+const initDB = require('./config/connectDB');
+initDB();
+
+/**
  * Rutas de usuarios
  */
 const userRouters = require('./app/routes/user')
@@ -19,7 +26,7 @@ app.use(userRouters)
  */
 app.get('/', (req,res) =>{
     res.send({
-        data: "hello javier"
+        data: "Nodejs - Backend"
     })
 })
 
@@ -29,3 +36,4 @@ app.get('/', (req,res) =>{
 app.listen(port, () => {
     console.log("Ejecutando node en puerto 3001. http://localhost:3001")    ;
 })
+
