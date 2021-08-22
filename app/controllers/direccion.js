@@ -1,6 +1,5 @@
 exports.getData = (req, res) => {
     res.send({
-        data: "viene desde ruta direccion"
+        data: "viene desde ruta controller direccion"
     })
-
 }

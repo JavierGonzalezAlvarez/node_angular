@@ -14,12 +14,9 @@ app.use(userRouters)
  const direccionRouters = require('./app/routes/direccion')
  app.use(direccionRouters)
  
-
-
 /**
  * ruta principal
  */
-
 app.get('/', (req,res) =>{
     res.send({
         data: "hello javier"

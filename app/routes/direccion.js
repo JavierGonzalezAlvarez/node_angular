@@ -2,9 +2,12 @@ const express = require('express');
 const router = express.Router();
 const path = 'direccion';
 
+const controller = require('../controllers/direccion');
+
 /**
  * Ruta: /direccion
  * Método: GET
+ * http://localhost:3001/direccion
  */
  router.get(
     `/${path}`,(req,res) =>{    
@@ -13,5 +16,15 @@ const path = 'direccion';
             calle : "cl central"
         })
 })
+
+/**
+ * Ruta: /direccion
+ * Método: GET
+ * http://localhost:3001/controller/direccion
+ */
+router.get(
+    `/controller/${path}`,
+    controller.getData
+)
 
 module.exports = router
