@@ -59,8 +59,16 @@ router.get(
     controller_user.updateData_User
 )
 
-module.exports = router
-
+/**
+ * Ruta: /user
+ * Método: DELETE
+ * (en bd) => _id: 6123215fe33d98499cc765d6
+ * http://localhost:3001/delete_user/user/6123215fe33d98499cc765d6
+ */
+ router.delete(
+    `/delete_user/${path}/:id`,
+    controller_user.deleteData_User
+)
 
 
 module.exports = router
