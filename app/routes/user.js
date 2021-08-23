@@ -70,5 +70,17 @@ router.get(
     controller_user.deleteData_User
 )
 
+/**
+ * Ruta: /user
+ * Método: POST
+ * http://localhost:3001/upload_user/user/
+ */
+ 
+ router.post(
+    `/upload_user/${path}`,
+    controller_user.upload,
+    controller_user.uploadData_User
+)
+
 
 module.exports = router

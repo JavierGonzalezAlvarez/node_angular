@@ -87,4 +87,8 @@ añadir en modelo models/user.js
 https://www.npmjs.com/package/mongoose-paginate-v2
 $ npm i mongoose-paginate-v2
 
-19. 
+19. update y delete
+20. instalar multer para subir ficheros
+https://www.npmjs.com/package/multer
+$ npm i multer
+

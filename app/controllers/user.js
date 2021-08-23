@@ -81,3 +81,24 @@ exports.deleteData_User = (req, res) => {
         }
     })
 }
+
+/**
+ * configuracion multer
+ */
+const multer  = require('multer')
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, 'uploads')
+    },
+    filename: function (req, file, cb) {      
+      cb(null, `${Date.now()} - ${file.originalname}`)
+    }
+  })
+
+const upload = multer({ storage: storage })
+exports.upload = upload.single('myFiles')
+
+exports.uploadData_User = (req, res) => {        
+    res.send({ resultado: 'fichero subido con exito' })  
+}
