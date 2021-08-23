@@ -1,4 +1,4 @@
-## crud en node y express
+## crud en node/express/angular
 
 1. crear proyecto
 $ npm init
@@ -40,24 +40,24 @@ $ echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongo
 $ sudo apt-get update
 $ sudo apt-get install -y mongodb-org
 
-start mondo-db
+## start mondo-db
 --------------------
 $ sudo systemctl start mongod
 
-acceder mongo db desde el shell
+## acceder mongo db desde el shell
 ----------------------------------
 $ mongo
 
-instalar mongodb-compass en linux
+## instalar mongodb-compass en linux
 ------------------------------------
 $ wget https://downloads.mongodb.com/compass/mongodb-compass_1.26.1_amd64.deb
 $ sudo dpkg -i mongodb-compass_1.26.1_amd64.deb
 
-star mongodb-compass
+## start mongodb-compass
 -----------------------
 $ mongodb-compass
 
-Nueva conexion a mongodb-compass
+## Nueva conexion a mongodb-compass
 -----------------------------------
 mongodb://localhost:27017/conexion_node_crud
 
@@ -86,3 +86,5 @@ añadir en modelo models/user.js
 18. paginar. instalar:
 https://www.npmjs.com/package/mongoose-paginate-v2
 $ npm i mongoose-paginate-v2
+
+19. 

@@ -1,4 +1,4 @@
-//const { model } = require("mongoose");
+const { Mongoose } = require("mongoose");
 const model_user = require("../models/user");
 
 /**
@@ -38,5 +38,29 @@ exports.insertData_User = (req, res) => {
             res.send({ datos:docs })
         }
     })
+}
 
+/**
+ * parseado
+ */
+//const parseId = (id) => {
+//    return Mongoose.Types.ObjectId(id)
+//}
+
+exports.updateData_User = (req, res) => {        
+    const referencia_id = req.params.id
+    //const { id } = req.params
+    const body = req.body
+    model_user.updateOne(
+        //{ _id: parseId(id) },
+        { _id: referencia_id },
+        body
+        , (err,docs) => {                
+            if(err) {
+                res.send({error: "Error actualización"}, 422)
+                console.log(err)
+        } else {
+                res.send({ datos:docs })
+        }
+    })
 }

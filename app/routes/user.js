@@ -48,6 +48,19 @@ router.get(
     controller_user.insertData_User
 )
 
+/**
+ * Ruta: /user
+ * Método: UPDATE
+ * (en bd) => _id: 6123215fe33d98499cc765d6
+ * http://localhost:3001/put_user/user/6123215fe33d98499cc765d6
+ */
+ router.put(
+    `/put_user/${path}/:id`,
+    controller_user.updateData_User
+)
+
+module.exports = router
+
 
 
 module.exports = router

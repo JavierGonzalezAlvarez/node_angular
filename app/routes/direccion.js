@@ -20,7 +20,7 @@ const controller_direccion = require('../controllers/direccion');
 })
 
 /**
- * Ruta: /direccion
+ * Ruta: /direcccion
  * Método: GET
  * http://localhost:3001/controller/direccion
  */
@@ -30,3 +30,4 @@ router.get(
 )
 
 module.exports = router
+
