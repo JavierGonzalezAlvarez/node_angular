@@ -15,6 +15,10 @@ const UserSchema = new mongoose.Schema(
         foto: {
             type: String
         },
+    },
+    {
+        versionKey: false,
+        timestamps: true
     }
 )
 

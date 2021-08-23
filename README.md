@@ -63,7 +63,22 @@ mongodb://localhost:27017/conexion_node_crud
 
 13. crear schema de cada 'tabla'
 app/models/user
-
 14. instalar body-parser
 $ npm i body-parser --save
+15. crear la ruta post
+16. probar desde postman
+método: post
+http://localhost:3001/post_user/user
 
+{    
+    "name": "javier",
+    "apellido": "gonzalez",
+    "email": "javier@gmail.com" 
+}
+
+17. dehabilitar version en registros.
+añadir en modelo models/user.js
+    {
+        versionKey: false,
+        timestamps: true
+    }

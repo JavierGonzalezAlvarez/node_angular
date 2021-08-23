@@ -39,5 +39,15 @@ router.get(
     controller_user.getData_User
 )
 
+/**
+ * Metodo: Post
+ * http://localhost:3001/post_user/user
+ */
+ router.post(
+    `/post_user/${path}`,
+    controller_user.insertData_User
+)
+
+
 
 module.exports = router
