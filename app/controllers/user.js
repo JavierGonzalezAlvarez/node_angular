@@ -5,10 +5,18 @@ const model_user = require("../models/user");
  * configurar consulta DATA de usuarios
  */
 exports.getData_User = (req, res) => {
-    model_user.find({}, (err, docs) => {
-        res.send({
-            docs: docs
-        })
+    /* modelo sin paginacion
+    model_user.find({}, (err, docs) => {        
+        res.send({ docs: docs })    
+    })
+    */
+
+    /**
+     * modelo con paginacion
+     * opcion de colocar objeto de "options"
+     */
+    model_user.paginate({}, { limit:2 }, (err,result) => {
+        res.send({ docs: result })    
     })
 }
 

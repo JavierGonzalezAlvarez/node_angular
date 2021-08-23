@@ -82,3 +82,7 @@ añadir en modelo models/user.js
         versionKey: false,
         timestamps: true
     }
+
+18. paginar. instalar:
+https://www.npmjs.com/package/mongoose-paginate-v2
+$ npm i mongoose-paginate-v2

@@ -1,4 +1,11 @@
 const mongoose = require('mongoose');
+
+/**
+ * paginar
+ * https://www.npmjs.com/package/mongoose-paginate-v2
+ */
+const mongoosePaginate = require('mongoose-paginate-v2');
+
 const UserSchema = new mongoose.Schema(
     {
         name: {
@@ -21,5 +28,10 @@ const UserSchema = new mongoose.Schema(
         timestamps: true
     }
 )
+
+/**
+ * activar paginacion
+ */
+UserSchema.plugin(mongoosePaginate);
 
 module.exports = mongoose.model('user', UserSchema)
