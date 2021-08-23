@@ -64,3 +64,6 @@ mongodb://localhost:27017/conexion_node_crud
 13. crear schema de cada 'tabla'
 app/models/user
 
+14. instalar body-parser
+$ npm i body-parser --save
+

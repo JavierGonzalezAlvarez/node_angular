@@ -15,7 +15,7 @@ module.exports = () => {
             },
             (err) => {
                 if(err) {
-                    console.log("Error de acceso a BD");
+                    console.log("Error de acceso a BD, comprobar si mongo está corriendo");
                 }else{
                     console.log("Conexion a DB correcta, ok");
                 }

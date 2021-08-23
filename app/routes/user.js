@@ -4,11 +4,13 @@ const express = require('express');
 const router = express.Router();
 const path = 'user';
 
-const controller = require('../controllers/direccion')
+//const controller_direccion = require('../controllers/direccion')
+const controller_user = require('../controllers/user');
 
 /**
  * Ruta: /user
  * Método: GET
+ * 
  */
 router.get(
     `/${path}`,(req,res) =>{    
@@ -18,12 +20,24 @@ router.get(
         })
 })
 
+/**
+ * Metodo: Get
+ * http://localhost:3001/user_saludo
+ */
 router.get('/user_saludo',(req,res) =>{
     res.send({
         data: "hello javier gonzalez"
     })
 })
 
+/**
+ * Metodo: Get 
+ * http://localhost:3001/get_user/user
+ */
+router.get(
+    `/get_user/${path}`,
+    controller_user.getData_User
+)
 
 
 module.exports = router

@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router();
 const path = 'direccion';
 
-const controller = require('../controllers/direccion');
+const controller_direccion = require('../controllers/direccion');
 
 /**
  * Ruta: /direccion
@@ -26,7 +26,7 @@ const controller = require('../controllers/direccion');
  */
 router.get(
     `/controller/${path}`,
-    controller.getData
+    controller_direccion.getData_Direccion
 )
 
 module.exports = router

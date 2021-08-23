@@ -3,6 +3,23 @@ const app = express();
 const port = 3001;
 
 /**
+ * importar boby parser para json
+ * inser data, Post
+ */
+const bodyParser = require("body-parser");
+app.use(
+    bodyParser.json({
+        limit:'20mb'
+    })
+)
+app.use(
+    bodyParser.urlencoded({
+        limit:'20mb',
+        extended:true
+    })
+)
+
+/**
  * conexion a BD
  */
 
