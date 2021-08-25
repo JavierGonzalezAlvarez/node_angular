@@ -19,6 +19,14 @@ const UserSchema = new mongoose.Schema(
             unique: true,
             required: true
         },
+        password: {
+            type: String,
+            required: [true, 'Password obligatorio']
+        },
+        isActive: {
+            type: Boolean,
+            default: true
+        },
         foto: {
             type: String
         },

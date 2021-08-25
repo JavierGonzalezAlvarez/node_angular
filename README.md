@@ -95,3 +95,15 @@ $ npm i multer
 21. instalar CORS
 $ npm i cors
 
+22. forzar estructira de codigo
+$ npm i eslint
+$ ./node_modules/.bin/eslint --init
+en package.json creamos un script para mostrar errores
+"lint": "eslint . /*.js"
+$ npm run lint
+
+Problemas con typescript al ejecutar lint: 
+eliminar referencias a typescritp or crear fichero 
+.eslintignore
+
+
