@@ -106,4 +106,5 @@ Problemas con typescript al ejecutar lint:
 eliminar referencias a typescritp or crear fichero 
 .eslintignore
 
-
+23. encriptacion password
+$ npm i bcrypt
