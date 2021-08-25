@@ -3,6 +3,16 @@ const app = express();
 const port = 3001;
 
 /**
+ * añadir CORS y usar
+ */
+ var cors = require('cors')
+ var corsOptions = {
+    origin: 'http://localhost:4200',
+    optionsSuccessStatus: 200
+  }
+ app.use(cors(corsOptions))
+
+/**
  * importar boby parser para json
  * inser data, Post
  */
@@ -51,6 +61,7 @@ app.get('/', (req,res) =>{
  * arrancar servidor
  */
 app.listen(port, () => {
-    console.log("Ejecutando node en puerto 3001. http://localhost:3001")    ;
+    console.log("Ejecutando node en puerto 3001. http://localhost:3001");
+    console.log("CORS enabled");
 })
 

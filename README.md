@@ -92,3 +92,6 @@ $ npm i mongoose-paginate-v2
 https://www.npmjs.com/package/multer
 $ npm i multer
 
+21. instalar CORS
+$ npm i cors
+
