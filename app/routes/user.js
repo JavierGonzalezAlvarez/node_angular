@@ -6,6 +6,7 @@ const path = 'user';
 
 //const controller_direccion = require('../controllers/direccion')
 const controller_user = require('../controllers/user');
+const controller_query = require('../controllers/query');
 
 /**
  * Ruta: /user
@@ -82,5 +83,14 @@ router.get(
     controller_user.uploadData_User
 )
 
+
+/**
+ * Metodo: Get 
+ * http://localhost:3001/get_user/user
+ */
+ router.get(
+    `/get_userdireccion/${path}`,
+    controller_query.getData_UserDireccion
+)
 
 module.exports = router

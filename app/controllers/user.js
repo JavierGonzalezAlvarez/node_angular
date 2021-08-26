@@ -15,7 +15,7 @@ exports.getData_User = (req, res) => {
      * modelo con paginacion
      * opcion de colocar objeto de "options"
      */
-    model_user.paginate({}, { limit:2 }, (err,result) => {
+    model_user.paginate({}, { limit:10 }, (err,result) => {
         res.send({ docs: result })    
     })
 }

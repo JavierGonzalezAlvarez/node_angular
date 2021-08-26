@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const DB_URI = `mongodb://localhost:27017/conexion_node_crud`;
+const DB_URI = `mongodb://localhost:27017/node_crud`;
 
 /**
  * exportamos el modulo para ser llamado desde otros ficheros
@@ -11,6 +11,7 @@ module.exports = () => {
             {
                keepAlive: true,
                useNewUrlParser: true,
+               //useCreateIndex: true,
                useUnifiedTopology: true
             },
             (err) => {

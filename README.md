@@ -108,3 +108,56 @@ eliminar referencias a typescritp or crear fichero
 
 23. encriptacion password
 $ npm i bcrypt
+
+24. instalar jwt
+$ npm i jsonwebtoken
+
+25. crear modelo direccion y relacion con user, uno a muchos
+26. crear controllers y rutas
+27. añadir desde postman datos, manualmente.
+Añadir ObjectID en modelo user
+
+{        
+    "direccion": "calle 1",
+    "provincia": "alicante",
+    "codigoPostal": "03005",
+    "isActive": true,
+    "telefono": "98978787",
+    "user": "6127938cc02cd1d264cd4303"
+}
+
+{        
+    "direccion": "calle 2",
+    "provincia": "madrid",
+    "codigoPostal": "28028",
+    "isActive": false,
+    "telefono": "67542563",
+    "user": "6127933ac02cd1d264cd4301"
+}
+
+{        
+    "direccion": "calle 2",
+    "provincia": "barcelona",
+    "codigoPostal": "08008",
+    "isActive": false,
+    "telefono": "5468522",
+    "user": "6127933ac02cd1d264cd4301"
+}
+
+# Añadir ObjectID en modelo user
+
+{        
+    "name": "javier",
+    "apellido": "gonzalez",
+    "email": "javier@gmail.com",
+    "password": "12345",    
+}
+
+{        
+    "name": "juan",
+    "apellido": "fernandez",
+    "email": "juan@gmail.com",
+    "password": "12345",    
+}
+
+Añadir direciones en el modelo user

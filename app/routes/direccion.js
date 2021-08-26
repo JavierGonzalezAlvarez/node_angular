@@ -5,6 +5,7 @@ const router = express.Router();
 const path = 'direccion';
 
 const controller_direccion = require('../controllers/direccion');
+const controller_query = require('../controllers/query');
 
 /**
  * Ruta: /direccion
@@ -22,12 +23,34 @@ const controller_direccion = require('../controllers/direccion');
 /**
  * Ruta: /direcccion
  * Método: GET
- * http://localhost:3001/controller/direccion
+ * http://localhost:3001/get_controller/direccion
  */
 router.get(
-    `/controller/${path}`,
+    `/get_controller/${path}`,
     controller_direccion.getData_Direccion
 )
+
+/**
+ * Ruta: /direcccion
+ * Método: POST
+ * http://localhost:3001/post_controller/direccion
+ */
+ router.post(
+    `/post_controller/${path}`,
+    controller_direccion.insertData_Direccion
+)
+
+/**
+ * Metodo: Get 
+ * http://localhost:3001/get_user/direccion
+ */
+ router.get(
+    `/get_direccionuser/${path}`,
+    controller_query.getData_DireccionUser
+)
+
+
+
 
 module.exports = router
 
