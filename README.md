@@ -150,14 +150,27 @@ Añadir ObjectID en modelo user
     "name": "javier",
     "apellido": "gonzalez",
     "email": "javier@gmail.com",
-    "password": "12345",    
+    "password": "12345"    
 }
 
 {        
     "name": "juan",
     "apellido": "fernandez",
     "email": "juan@gmail.com",
-    "password": "12345",    
+    "password": "12345"   
 }
 
 Añadir direciones en el modelo user
+
+28. instalar swageer-ui-express
+$ npm i swagger-ui-express
+$ npm i swagger-jsdoc
+29. sntalar express_validator
+$ sudo npm install express-validator
+30. crear fichero auth.js, JWT
+config/auth.js
+31. encriptar contraseña con middleware si cambia
+models\users.js
+32. crear carpeta services.
+alta usuario => app\services\users
+33. crear y verificar token

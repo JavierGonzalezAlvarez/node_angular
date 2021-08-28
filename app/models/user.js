@@ -1,12 +1,13 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const bcrypt =  require('bcrypt');
 /**
  * paginar
  * https://www.npmjs.com/package/mongoose-paginate-v2
  */
 const mongoosePaginate = require('mongoose-paginate-v2');
 
-const UserSchema = new mongoose.Schema(
+const userSchema = new mongoose.Schema(
     {
         //_id: Schema.Types.ObjectId,
         name: {
@@ -45,6 +46,15 @@ const UserSchema = new mongoose.Schema(
 /**
  * activar paginacion
  */
-UserSchema.plugin(mongoosePaginate);
+userSchema.plugin(mongoosePaginate);
 
-module.exports = mongoose.model('user', UserSchema)
+/**
+ * middleware
+ * encriptar contraseña si no hay cambio de contraseña
+ */
+userSchema.pre('save', async function(next) {
+    if (!this.isModified('password')) next()
+    this.password = await bcrypt.hash(this.password, 10)
+})
+
+module.exports = mongoose.model('user', userSchema)

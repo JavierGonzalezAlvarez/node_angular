@@ -42,7 +42,7 @@ router.get(
 
 /**
  * Metodo: Get 
- * http://localhost:3001/get_user/direccion
+ * http://localhost:3001/get_direccionuser/direccion
  */
  router.get(
     `/get_direccionuser/${path}`,

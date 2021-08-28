@@ -3,12 +3,39 @@ const app = express();
 const port = 3001;
 
 /**
+ * añadir swagger-ui-express
+ */
+const swaggerJSDoc = require('swagger-jsdoc');
+const swaggerUI = require('swagger-ui-express');
+
+const swaggerOptions = {
+    swaggerDefinition: {
+        info: {
+            title: "Backend en Node",
+            description: "Backend Api",
+            contact: {
+                name: 'node app'
+            },
+            servers: "http://localhost:3001"
+        }
+    },
+    //apis: ["server.js", "../routes/*.js"]
+    apis: ["../routes/*.js"]
+};
+
+const swaggerDocs = swaggerJSDoc(swaggerOptions);
+//ruta swagger
+app.use('/api/docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
+
+/**
  * añadir CORS y usar
  */
  var cors = require('cors')
  var corsOptions = {
     origin: 'http://localhost:4200',
-    optionsSuccessStatus: 200
+    optionsSuccessStatus: 200,
+    methods: ['GET', 'PUT', 'DELETE', 'PATCH', 'POST'],
+    allowedHeaders: 'Content-Type, Authorization, Origin, X-Requested-With, Accept'
   }
  app.use(cors(corsOptions))
 

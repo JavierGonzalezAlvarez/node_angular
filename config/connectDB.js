@@ -11,7 +11,7 @@ module.exports = () => {
             {
                keepAlive: true,
                useNewUrlParser: true,
-               //useCreateIndex: true,
+               useCreateIndex: true,
                useUnifiedTopology: true
             },
             (err) => {

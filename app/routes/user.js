@@ -41,13 +41,54 @@ router.get(
 )
 
 /**
- * Metodo: Post
+ * Metodo: Post. Desde Postman
  * http://localhost:3001/post_user/user
  */
  router.post(
     `/post_user/${path}`,
     controller_user.insertData_User
 )
+
+/**
+ * register desde angular
+ * Metodo: Post.
+ * http://localhost:3001/register/user
+ */
+ router.post(
+    `/register/${path}`,
+    controller_user.registerData_User_Front
+)
+
+/**
+ * login desde angular
+ * Metodo: Post.
+ * http://localhost:3001/login/user
+ */
+ router.post(
+    `/login/${path}`,
+    controller_user.loginData_User_Front
+ )
+
+ /**
+ * login desde postman
+ * Metodo: Post.
+ * http://localhost:3001/login/user
+ */
+ const secret = "34p5902DFgHniUEMVNJuYh7632334d7DUYSD"
+ const { verificarTokenPostman } = require('../services/userServices');
+ const jwt = require('jsonwebtoken');
+ router.post("/loginPostman/user",verificarTokenPostman, (req,res) => {    
+     jwt.verify(req.token, secret, (err, authData) => {        
+         if(err){             
+             res.sendStatus(400);
+         }else{
+             res.json({
+                 mensaje: "verificado",
+                 authData
+             });
+         }        
+     })                 
+ })
 
 /**
  * Ruta: /user
@@ -86,7 +127,7 @@ router.get(
 
 /**
  * Metodo: Get 
- * http://localhost:3001/get_user/user
+ * http://localhost:3001/get_userdireccion/user
  */
  router.get(
     `/get_userdireccion/${path}`,

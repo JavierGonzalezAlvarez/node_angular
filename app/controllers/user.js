@@ -1,5 +1,6 @@
 const { Mongoose } = require("mongoose");
 const model_user = require("../models/user");
+const jwt = require('jsonwebtoken');
 
 /**
  * configurar consulta DATA de usuarios
@@ -21,9 +22,8 @@ exports.getData_User = (req, res) => {
 }
 
 /**
- * insertar data de usuarios 
+ * insertar data de usuarios desde postman
  */
-
 exports.insertData_User = (req, res) => {
     const data = req.body
     
@@ -39,6 +39,59 @@ exports.insertData_User = (req, res) => {
         }
     })
 }
+
+
+/**
+ * register de usuario desde angular
+ */
+const secret = "34p5902DFgHniUEMVNJuYh7632334d7DUYSD"
+const { addUser } = require('../services/userServices');
+exports.registerData_User_Front = async (req, res) => {    
+    try {       
+        const user = await (addUser(req.body))
+
+        //https://github.com/auth0/node-jsonwebtoken => Sign asynchronously
+        jwt.sign( {user: user}, secret, (err, token) => {
+            res.json( { usuario: user ,token: token } );                                 
+            //res.json( { token: token } );                                 
+        });
+             
+    } catch (e) {
+        console.error(e)
+        return res.status(400).send("Error en campos obligatorios")
+    }    
+}
+
+/**
+ * login de usuario desde angular
+ */
+exports.loginData_User_Front = async (req, res) => {    
+    try {   
+        const bearerHeader = req.headers['authorization'];
+        if(typeof bearerHeader !== 'undefined'){
+            const bearerToken = await bearerHeader.split(' ')[1]
+            token = bearerToken;
+            console.log("token =>", token);                                
+        } else {        
+            res.sendStatus(403);
+        }
+              
+        jwt.verify( token , secret, (err, authData) => {
+            if(err){
+                res.sendStatus(400);
+            }else{
+                res.json({
+                    mensaje: "verificado",
+                    authData, token: token
+                });
+            }            
+        })
+    } catch (e) {
+        console.error(e)
+        return res.status(400).send("Token no recibido")
+    }           
+};
+
 
 /**
  * parseado
