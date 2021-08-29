@@ -2,6 +2,7 @@ const User = require("../models/user");
 
 
 /**
+ * register
  * funcion asyncrona. crear/register un nuevo usuario
  * recogemos datos del usuario nuevo
  */
@@ -12,7 +13,9 @@ const addUser = async(userInput) => {
 }
 
 /**
+ * login
  * verificar token
+ * indicar en headers de postman el token generado
  * next => resultado con exito
  */
 function verificarTokenPostman (req, res, next) {

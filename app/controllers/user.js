@@ -17,8 +17,10 @@ exports.getData_User = (req, res) => {
      * opcion de colocar objeto de "options"
      */
     model_user.paginate({}, { limit:10 }, (err,result) => {
-        res.send({ docs: result })    
+        res.send({ documento: result }),
+        console.log({ documento: result.docs })    
     })
+    
 }
 
 /**
@@ -40,22 +42,19 @@ exports.insertData_User = (req, res) => {
     })
 }
 
-
 /**
- * register de usuario desde angular
+ * register
+ * register de usuario desde postman
  */
 const secret = "34p5902DFgHniUEMVNJuYh7632334d7DUYSD"
 const { addUser } = require('../services/userServices');
 exports.registerData_User_Front = async (req, res) => {    
     try {       
         const user = await (addUser(req.body))
-
         //https://github.com/auth0/node-jsonwebtoken => Sign asynchronously
         jwt.sign( {user: user}, secret, (err, token) => {
-            res.json( { usuario: user ,token: token } );                                 
-            //res.json( { token: token } );                                 
-        });
-             
+            res.json( { usuario: user ,token: token } );                                                                             
+        });             
     } catch (e) {
         console.error(e)
         return res.status(400).send("Error en campos obligatorios")
@@ -63,6 +62,7 @@ exports.registerData_User_Front = async (req, res) => {
 }
 
 /**
+ * login
  * login de usuario desde angular
  */
 exports.loginData_User_Front = async (req, res) => {    
@@ -81,7 +81,7 @@ exports.loginData_User_Front = async (req, res) => {
                 res.sendStatus(400);
             }else{
                 res.json({
-                    mensaje: "verificado",
+                    mensaje: "verificado desde angular",
                     authData, token: token
                 });
             }            
@@ -117,7 +117,6 @@ exports.updateData_User = (req, res) => {
         }
     })
 }
-
 
 exports.deleteData_User = (req, res) => {        
     const referencia_id = req.params.id

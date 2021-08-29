@@ -5,27 +5,29 @@ const port = 3001;
 /**
  * añadir swagger-ui-express
  */
-const swaggerJSDoc = require('swagger-jsdoc');
-const swaggerUI = require('swagger-ui-express');
+ const swaggerUI = require('swagger-ui-express');
+ const swaggerJSDoc = require('swagger-jsdoc');
+ 
+ const swaggerOptions = {
+     swaggerDefinition: {
+         info: {
+             title: "Backend en Node",
+             description: "Backend Api",
+             contact: {
+                 name: 'node app'
+             },
+             servers: "http://localhost:3636"
+         }
+     },
+     apis: ["server.js", "./app/routes/*.js"]    
+     //apis: ['server.js',`${__dirname}.routes/*.js`] //["../routes/*.js"]
+     //apis: ['.routes/*.js']
+ };
+ 
+ const swaggerDocs = swaggerJSDoc(swaggerOptions);
+ //ruta swagger
+ app.use('/api/docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 
-const swaggerOptions = {
-    swaggerDefinition: {
-        info: {
-            title: "Backend en Node",
-            description: "Backend Api",
-            contact: {
-                name: 'node app'
-            },
-            servers: "http://localhost:3001"
-        }
-    },
-    //apis: ["server.js", "../routes/*.js"]
-    apis: ["../routes/*.js"]
-};
-
-const swaggerDocs = swaggerJSDoc(swaggerOptions);
-//ruta swagger
-app.use('/api/docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 
 /**
  * añadir CORS y usar
@@ -63,9 +65,8 @@ app.use(
 const initDB = require('./config/connectDB');
 initDB();
 
-/**
- * Rutas de usuarios
- */
+
+
 const userRouters = require('./app/routes/user')
 app.use(userRouters)
 
@@ -75,13 +76,25 @@ app.use(userRouters)
  const direccionRouters = require('./app/routes/direccion')
  app.use(direccionRouters)
  
+
+/**
+ * @swagger
+ * /:
+ *   get:
+ *    description: saludos desde el backend
+ *  
+ */
+
 /**
  * ruta principal
  */
 app.get('/', (req,res) =>{
     res.send({
-        data: "Nodejs - Backend"
+        data: "Nodejs - Saludos desde el Backend"
     })
+    console.log( {
+        data: "Nodejs - Saludos desde el Backend"
+    } )
 })
 
 /**

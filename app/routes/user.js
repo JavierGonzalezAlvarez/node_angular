@@ -7,15 +7,32 @@ const path = 'user';
 //const controller_direccion = require('../controllers/direccion')
 const controller_user = require('../controllers/user');
 const controller_query = require('../controllers/query');
+const controller_auth = require('../controllers/auth');
+
+const secret = "34p5902DFgHniUEMVNJuYh7632334d7DUYSD"
+const { verificarTokenPostman } = require('../services/userServices');
+const jwt = require('jsonwebtoken');
+
 
 /**
  * Ruta: /user
  * Método: GET
  * 
  */
+/**
+ * @swagger
+ * /user:
+ *   get:
+ *    description: todos los usarios activos actuales
+ * 
+ */
 router.get(
     `/${path}`,(req,res) =>{    
         res.send({                   
+            user: "usuario",
+            apellido : "gonzalez"
+        })
+    console.log(    {                   
             user: "usuario",
             apellido : "gonzalez"
         })
@@ -34,6 +51,13 @@ router.get('/user_saludo',(req,res) =>{
 /**
  * Metodo: Get 
  * http://localhost:3001/get_user/user
+ */
+/**
+ * @swagger
+ * /get_user/user:
+ *   get:
+ *    description: todos los usarios activos actuales
+ * 
  */
 router.get(
     `/get_user/${path}`,
@@ -69,14 +93,29 @@ router.get(
     controller_user.loginData_User_Front
  )
 
+/**
+ * login    
+ * login desde postman con json user-password
+ * Metodo: Post.
+ * http://localhost:3001/loginUser/user
+ */ 
+ router.post(
+     "/loginUser/user",
+     controller_auth.validacion, verificarTokenPostman,
+     (req, res) => {        
+        console.log(req.email);
+        console.log(req.token);
+        //solo enviar un res (response) al cliente
+        res.json({ email: req.email, token: req.token })                 
+     }
+)
+
  /**
+ * login    
  * login desde postman
  * Metodo: Post.
- * http://localhost:3001/login/user
+ * http://localhost:3001/loginPostman/user
  */
- const secret = "34p5902DFgHniUEMVNJuYh7632334d7DUYSD"
- const { verificarTokenPostman } = require('../services/userServices');
- const jwt = require('jsonwebtoken');
  router.post("/loginPostman/user",verificarTokenPostman, (req,res) => {    
      jwt.verify(req.token, secret, (err, authData) => {        
          if(err){             
@@ -84,7 +123,8 @@ router.get(
          }else{
              res.json({
                  mensaje: "verificado",
-                 authData
+                 authData,
+                 token: req.token
              });
          }        
      })                 
@@ -117,13 +157,11 @@ router.get(
  * Método: POST
  * http://localhost:3001/upload_user/user/
  */
- 
  router.post(
     `/upload_user/${path}`,
     controller_user.upload,
     controller_user.uploadData_User
 )
-
 
 /**
  * Metodo: Get 
