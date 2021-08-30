@@ -11,7 +11,8 @@ exports.validacion = async (req, res, next) => {
     //consultar email y password en DB
     const user = await model_user.findOne({ email: email });    
     if (user){
-        console.log("email encontrado");        
+        console.log("email encontrado"); 
+        //solo un response
         //res.json( { email: email } );  
         console.log("password =>", user.password);
         //validar contraseña
@@ -30,8 +31,7 @@ exports.validacion = async (req, res, next) => {
             }
         catch (error) {
             console.log("error =>", error)
-        }            
-        
+        }                    
     }         
     else{
         res.status(404).send("no encontrado")              

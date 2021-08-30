@@ -28,6 +28,57 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 ##--------------------------
-# nuevo proyecto
+## nuevo proyecto
 $ ng new frontend
 -routing (y) css (y)
+
+## instalar componentes necesarios
+* listado direcciones
+..src/app/ $ ng g component listados/listado-direcciones
+* headers
+..src/app/ $ ng g component header/header
+* -footer
+..src/app/ $ ng g component footer/footer
+* -body
+..src/app/ $ ng g component body/body
+
+## instalar material design
+..src/app/ $ ng add @angular/material
+- añadir { MaterialModule } en app.module.ts
+- en app/styles.css, comentar => /* html, body { height: 100%; } */
+
+## creamos un module donde ingresar los componentes de material
+..src/app/ $ ng g module material
+
+## ingresar los componentes que necesitamos
+-src/app/material/material.module.ts
+import { MatToolbarModule } from "@angular/material/toolbar"
+exports: [
+    MatToolbarModule
+  ]
+etc.
+
+## configurar app-routing
+Asignar el componente Body como landingpage a <routing-outlet>
+    {path: '', component: BodyComponent},
+
+## acceso al back en carpeta environments
+src/environments/environments.ts
+
+## importar componente HttpClientModule en 
+src/app/app-module.ts
+
+## crear servicio (crear carpeta service)
+src/app/ $ ng g service service/direccion
+Crear endpoint al back
+
+## importar servicio en componente
+
+
+
+
+
+
+
+
+

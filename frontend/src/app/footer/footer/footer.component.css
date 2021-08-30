@@ -1,0 +1,15 @@
+#container {
+    display: flex;            
+    height: 25px;
+    width: 100%;
+    align-self: flex-end;
+
+    background-color: #673ab7 ;
+    color: white;
+
+    position: absolute;
+    bottom:0px; 
+        
+    font-size: 20px;
+    text-align: justify;    
+}

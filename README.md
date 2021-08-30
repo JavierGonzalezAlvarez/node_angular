@@ -160,7 +160,7 @@ Añadir ObjectID en modelo user
     "password": "12345"   
 }
 
-Añadir direciones en el modelo user
+Añadir direcciones en el modelo user
 
 28. instalar swageer-ui-express
 $ npm i swagger-ui-express
@@ -174,3 +174,5 @@ models\users.js
 32. crear carpeta services.
 alta usuario => app\services\users
 33. crear y verificar token
+34. login: crear fichero controllers\auth.js, validar email
+35. angular, crear rutas api
