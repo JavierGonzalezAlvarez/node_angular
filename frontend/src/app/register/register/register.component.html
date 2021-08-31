@@ -1,0 +1,32 @@
+<h1>Registro de usuario</h1>
+
+<form (ngSubmit)="registerUser()" [formGroup]="registrationForm">
+    <label for="name">Name</label>
+    <input formControlName ="name" 
+        id="name"
+        name ="name"        
+        type ="text"><br>
+
+    <label for="apellido">Apellido</label>
+    <input formControlName ="apellido" 
+        id="apellido"
+        name ="apellido"        
+        type ="text"><br>
+
+    <label for="email">Email</label>
+    <input formControlName ="email" 
+        id="email"
+        name ="email"
+        placeholder="tu@email.com"
+        required type ="text"><br>
+
+    <label for="email">PaswwordEmail</label>
+    <input formControlName ="password" 
+        id="password"
+        name ="password"
+        placeholder="tu password"
+        required type ="text"><br>
+        
+    <button>Register</button>
+</form>
+

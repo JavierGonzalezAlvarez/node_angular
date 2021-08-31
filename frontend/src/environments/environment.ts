@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiBack: 'http://localhost:3001/'
+  apiBack: 'http://localhost:3001/'  
 };
 
 /*

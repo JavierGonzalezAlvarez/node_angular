@@ -25,6 +25,13 @@ const controller_query = require('../controllers/query');
  * Método: GET
  * http://localhost:3001/get_controller/direccion
  */
+/**
+ * @swagger
+ * /get_controller/direccion:
+ *   get:
+ *    description: todos las direcciones
+ * 
+ */
 router.get(
     `/get_controller/${path}`,
     controller_direccion.getData_Direccion
@@ -35,6 +42,13 @@ router.get(
  * Método: POST
  * http://localhost:3001/post_controller/direccion
  */
+/**
+ * @swagger
+ * /post_controller/direccion:
+ *   get:
+ *    description: insertar dirección
+ * 
+ */
  router.post(
     `/post_controller/${path}`,
     controller_direccion.insertData_Direccion
@@ -43,6 +57,13 @@ router.get(
 /**
  * Metodo: Get 
  * http://localhost:3001/get_direccionuser/direccion
+ */
+/**
+ * @swagger
+ * /get_direccionuser/direccion:
+ *   get:
+ *    description: todos los usarios y direcciones
+ * 
  */
  router.get(
     `/get_direccionuser/${path}`,

@@ -24,8 +24,7 @@ export class ListadoDireccionesComponent implements OnInit {
     this.listadoService.getAllDirecciones().subscribe(data=>{     
       this.result = data;      
       console.log(this.result);      
-    })
-        
+    })        
  
   }
 

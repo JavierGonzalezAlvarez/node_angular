@@ -47,10 +47,10 @@ $ ng new frontend
 - añadir { MaterialModule } en app.module.ts
 - en app/styles.css, comentar => /* html, body { height: 100%; } */
 
-## creamos un module donde ingresar los componentes de material
+1. creamos un module donde ingresar los componentes de material
 ..src/app/ $ ng g module material
 
-## ingresar los componentes que necesitamos
+2. ingresar los componentes que necesitamos
 -src/app/material/material.module.ts
 import { MatToolbarModule } from "@angular/material/toolbar"
 exports: [
@@ -58,27 +58,48 @@ exports: [
   ]
 etc.
 
-## configurar app-routing
+3. configurar app-routing
 Asignar el componente Body como landingpage a <routing-outlet>
     {path: '', component: BodyComponent},
 
-## acceso al back en carpeta environments
+4. acceso al back en carpeta environments
 src/environments/environments.ts
 
-## importar componente HttpClientModule en 
+5. importar componente HttpClientModule en 
 src/app/app-module.ts
 
-## crear servicio (crear carpeta service)
+6. crear servicio (crea carpeta service)
 src/app/ $ ng g service service/direccion
 Crear endpoint al back
 
-## importar servicio en componente
+7. importar servicio en componente
+listado-direcciones-component.ts
 
+8. importar MatTabsModule
+import { MatTabsModule } from '@angular/material/tabs'
 
+9. routerLink en header
+<router-outlet></router-outlet> sustituye al componente body
 
+10. crear componentes
+* register
+..src/app/ $ ng g component register/register
+* login
+..src/app/ $ ng g component login/login
+* direcciones
+..src/app/ $ ng g component direccion/direccion
 
+11. crear interface con los datos que recibiremos
+..register/seguridad.ts
 
+11. crear servicio (en carpeta service)
+src/app/ $ ng g service service/seguridad
 
+12. importar modulos para formularios en app.module.ts
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
+13. logica en register.componets
+13. token en localStorage
 
 
 

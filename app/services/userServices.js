@@ -1,4 +1,4 @@
-const User = require("../models/user");
+const modelUser = require("../models/user");
 
 
 /**
@@ -7,7 +7,7 @@ const User = require("../models/user");
  * recogemos datos del usuario nuevo
  */
 const addUser = async(userInput) => {
-    const user = new User(userInput);
+    const user = new modelUser(userInput);
     await user.save();
     return user;
 }

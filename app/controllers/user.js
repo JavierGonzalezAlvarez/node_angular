@@ -43,7 +43,7 @@ exports.insertData_User = (req, res) => {
 }
 
 /**
- * register
+ * register/user
  * register de usuario desde postman
  */
 const secret = "34p5902DFgHniUEMVNJuYh7632334d7DUYSD"
@@ -53,11 +53,12 @@ exports.registerData_User_Front = async (req, res) => {
         const user = await (addUser(req.body))
         //https://github.com/auth0/node-jsonwebtoken => Sign asynchronously
         jwt.sign( {user: user}, secret, (err, token) => {
-            res.json( { usuario: user ,token: token } );                                                                             
+            //devolvemos un 200, usuario y token al front
+            return res.status(200).json( { usuario: user, token: token } );                                                                             
         });             
     } catch (e) {
         console.error(e)
-        return res.status(400).send("Error en campos obligatorios")
+        return res.status(400).send("Respuesta Back: Error en campos obligatorios")
     }    
 }
 

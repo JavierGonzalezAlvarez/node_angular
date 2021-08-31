@@ -68,6 +68,13 @@ router.get(
  * Metodo: Post. Desde Postman
  * http://localhost:3001/post_user/user
  */
+/**
+ * @swagger
+ * /post_user/user:
+ *   get:
+ *    description: ingresa un usario desde postman
+ * 
+ */
  router.post(
     `/post_user/${path}`,
     controller_user.insertData_User
@@ -78,6 +85,13 @@ router.get(
  * Metodo: Post.
  * http://localhost:3001/register/user
  */
+/**
+ * @swagger
+ * /register/user:
+ *   get:
+ *    description: ingresa un usuario desde angular
+ * 
+ */
  router.post(
     `/register/${path}`,
     controller_user.registerData_User_Front
@@ -87,6 +101,13 @@ router.get(
  * login desde angular
  * Metodo: Post.
  * http://localhost:3001/login/user
+ */
+/**
+ * @swagger
+ * /login/user:
+ *   get:
+ *    description: login desde angular
+ * 
  */
  router.post(
     `/login/${path}`,
@@ -99,6 +120,13 @@ router.get(
  * Metodo: Post.
  * http://localhost:3001/loginUser/user
  */ 
+/**
+ * @swagger
+ * /loginUser/user:
+ *   get:
+ *    description: login desde postman con json user y password
+ * 
+ */
  router.post(
      "/loginUser/user",
      controller_auth.validacion, verificarTokenPostman,
@@ -115,6 +143,13 @@ router.get(
  * login desde postman
  * Metodo: Post.
  * http://localhost:3001/loginPostman/user
+ */
+/**
+ * @swagger
+ * /loginPostman/user:
+ *   get:
+ *    description: login desde Postman
+ * 
  */
  router.post("/loginPostman/user",verificarTokenPostman, (req,res) => {    
      jwt.verify(req.token, secret, (err, authData) => {        
@@ -136,6 +171,13 @@ router.get(
  * (en bd) => _id: 6123215fe33d98499cc765d6
  * http://localhost:3001/put_user/user/6123215fe33d98499cc765d6
  */
+/**
+ * @swagger
+ * /put_user/user/:id:
+ *   get:
+ *    description: actualizar usuario
+ * 
+ */
  router.put(
     `/put_user/${path}/:id`,
     controller_user.updateData_User
@@ -147,6 +189,13 @@ router.get(
  * (en bd) => _id: 6123215fe33d98499cc765d6
  * http://localhost:3001/delete_user/user/6123215fe33d98499cc765d6
  */
+/**
+ * @swagger
+ * /delete_user/user/:id:
+ *   get:
+ *    description: delete user
+ * 
+ */
  router.delete(
     `/delete_user/${path}/:id`,
     controller_user.deleteData_User
@@ -157,6 +206,13 @@ router.get(
  * Método: POST
  * http://localhost:3001/upload_user/user/
  */
+/**
+ * @swagger
+ * /upload_user/user:
+ *   get:
+ *    description: todos los usarios activos actuales
+ * 
+ */
  router.post(
     `/upload_user/${path}`,
     controller_user.upload,
@@ -166,6 +222,13 @@ router.get(
 /**
  * Metodo: Get 
  * http://localhost:3001/get_userdireccion/user
+ */
+/**
+ * @swagger
+ * /get_userdireccion/user:
+ *   get:
+ *    description: todos los usarios y direccion sio relacion
+ * 
  */
  router.get(
     `/get_userdireccion/${path}`,
