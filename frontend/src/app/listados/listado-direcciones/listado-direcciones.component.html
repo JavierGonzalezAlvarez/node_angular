@@ -1,9 +1,67 @@
 
-<h1>Listado de direcciones - component</h1>
+<h1>Component - Listado de direcciones</h1>
 
-<div *ngIf="result">
-   Listado de direcciones<br>
-   {{ result | json}} 
+<div *ngIf="data">
+   <h2>Listado de direcciones de usuarios</h2>     
+      {{ data | json }}       
+    <hr> 
 </div>
-    
+
+<div *ngIf="result1">
+   <h2>Listado de direcciones de usuarios, tipo: Any</h2>
+        {{ result1 | json }}    
+    <hr>   
+</div>
+
+<div *ngIf="result4">
+   <h2>Direccion del primer registro</h2>
+        {{ result4 }}    
+    <hr>   
+</div>
+<div *ngIf="!result2"> 
+      No hay dirección, json
+</div>
+
+<h2>Direcciones de Usuarios - Listado</h2>
+<div class="container">
+    <div *ngIf="result2">                 
+            <table >
+                <thead>
+                    <tr style="background-color:rgb(240, 188, 188)">                        
+                        <th>Direccion</th>                     
+                        <th>Provincia</th>
+                        <th>Id User</th>
+                        <th>Fecha creación</th>
+                        <th>Teléfono</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="fila" *ngFor="let direccionUser of result2">                        
+                        <td>{{ direccionUser.direccion }}</td>
+                        <td>{{ direccionUser.provincia }}</td>
+                        <td>{{ direccionUser.user }}</td>
+                        <td>{{ direccionUser.createdAt }}</td>
+                        <td>{{ direccionUser.telefono }}</td>
+                                                
+                    </tr>
+                </tbody>
+            </table>        
+    </div>
+    <div *ngIf="!result2"> 
+      No hay json
+    </div>
+    <hr>
+</div>
+
+<div *ngIf="result6">
+   <h2>Listado de direcciones + código postal - getter</h2>   
+      {{ result6 }}    
+    <hr>         
+</div>
+
+
+
+
+
+
 

@@ -101,5 +101,15 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 13. logica en register.componets
 13. token en localStorage
 
+14. añadir internationalization (i18n)
+$ ng add @angular/localize
+
+15. crear carpeta apps/models para interfaces.
+desde https://app.quicktype.io/ crar interfaces con el json recibido
+
+16. install bootstrap
+$ npm install bootstrap --save
+en src/style.css, colocar:
+@import "~bootstrap/dist/css/bootstrap.css";
 
 

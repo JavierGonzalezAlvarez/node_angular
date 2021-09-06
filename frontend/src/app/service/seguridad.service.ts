@@ -13,14 +13,12 @@ export class SeguridadService {
   
   constructor(private http: HttpClient) { 
     //this.postRegister({
-//      this.name = 
-  //  })
-
+    //      this.name = 
+    //  })
   }
 
   private serverUrl = environment.apiBack;
-  private readonly llaveToken = 'token'
-
+  
   httpOptions = {
     headers: new HttpHeaders({
       'Content-type': 'application/json'

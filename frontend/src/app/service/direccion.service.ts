@@ -4,8 +4,10 @@ import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders, } from '@angular/common/http';
 
 import { Observable, throwError } from 'rxjs';
-//import { catchError, retry } from 'rxjs/operators';
+import { ResponseDirecionUser } from 'src/app/models/respuesta-direccionuser';
 
+import { map } from 'rxjs/operators'
+import { Usuario } from '../models/usuarios';
 
 @Injectable({
   providedIn: 'root'
@@ -39,10 +41,25 @@ export class DireccionService {
     //'Authorization': `Token ${this.token}`        
     })
   } 
-
-   getAllDirecciones(): Observable<any> {     
-      return this.http.get<any>(this.serverUrl + 'get_direccionuser/direccion', this.httpOptions)           
+    
+    getAllDirecciones1() {         
+      return this.http.get(this.serverUrl + 'get_direccionuser/direccion', this.httpOptions)           
     };
-  
+    
+    getAllDirecciones2(): Observable<any> {     
+      return this.http.get<any>(this.serverUrl + 'get_direccionuser/direccion', this.httpOptions)                 
+    };
+
+    getAllDirecciones3(): Observable<any> {     
+      return this.http.get<ResponseDirecionUser>(this.serverUrl + 'get_direccionuser/direccion', this.httpOptions)
+        .pipe(
+          //cogemos la respuesta y la transformamos en lo que se necesita
+            map(res => {
+                //devolvemos uns instancia de usuarioJson()
+                return  res.docs.map(user => Usuario.usuarioJson(user))
+            })
+        )               
+    };
+    
 
 }

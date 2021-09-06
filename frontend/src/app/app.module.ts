@@ -15,6 +15,9 @@ import { RegisterComponent } from './register/register/register.component';
 import { LoginComponent } from './login/login/login.component';
 import { DireccionComponent } from './direccion/direccion/direccion.component';
 
+//import {Component} from '@angular/core';
+//import {FormControl, Validators} from '@angular/forms';
+
 //register y login
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
@@ -33,7 +36,9 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     MaterialModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule    
+    ReactiveFormsModule,
+    //Component,
+    //FormControl    
   ],
   providers: [],
   bootstrap: [AppComponent]

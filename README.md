@@ -176,3 +176,4 @@ alta usuario => app\services\users
 33. crear y verificar token
 34. login: crear fichero controllers\auth.js, validar email
 35. angular, crear rutas api
+36. 
